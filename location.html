@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<header>
+<div class="abc">
+</div>
+</header>
+<script>
+var ipApiCall = "https://ipapi.co/json";
+var  header = document.querySelector("header");
+ var request = new XMLHttpRequest();
+request.open('GET', ipApiCall);
+request.responseType = 'json';
+request.send();
+request.onload = function() {
+  var superHeroes = request.response;
+  populateHeader(superHeroes);
+  
+}
+function populateHeader(jsonObj) {
+  var x = document.createElement('h6');
+    
+  x.textContent = jsonObj['city'] + ',' + jsonObj['region'];
+  header.appendChild(x);
+  }
+  	
+</script>
+
+</body>	
+	
+	</html>
+	
